@@ -39,4 +39,27 @@ describe('Selenium Server on CircleCI', () => [
       assert(title === 'Example Domain');
     });
   });
+
+  describe('google.co.jp', () => {
+    const screenshot = new ScreenShot(screenshotDirPath, 'google.co.jp');
+
+    it('should be access', async () => {
+      await driver.get('http://www.google.co.jp/');
+      await screenshot.capture(driver);
+    });
+
+    it('should be correct document title', async () => {
+      const title = await driver.executeScript(() => document.title);
+      assert(title === 'Google');
+    });
+
+    it('should be search website', async () => {
+      await driver.wait(until.elementLocated(By.css('input[name="q"]')), 5000);
+      await driver.findElement(By.css('input[name="q"]')).sendKeys('Greeting');
+      await screenshot.capture(driver);
+      const title = await driver.executeScript(() => document.f.submit());
+      await driver.wait(until.titleContains('Greeting'), 5000);
+      await screenshot.capture(driver);
+    });
+  });
 })));
