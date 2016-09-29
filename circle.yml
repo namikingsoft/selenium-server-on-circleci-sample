@@ -12,7 +12,8 @@ dependencies:
   pre:
     - bin/upgrade-chrome.sh
     - bin/install-selenium.sh
-    - bin/start-selenium.sh
+    - bin/start-selenium.sh:
+        background: true
 
 test:
   override:
