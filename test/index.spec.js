@@ -4,6 +4,7 @@ import { ScreenShot } from './utils';
 
 describe('Selenium Server on CircleCI', () => [
   'phantomjs',
+  'firefox',
   'chrome',
 ].forEach(browserName => context(`browser: ${browserName}`, () => {
   const screenshotDirPath = `./screenshot/${browserName}`;
