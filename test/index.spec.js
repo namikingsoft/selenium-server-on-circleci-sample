@@ -22,8 +22,11 @@ describe('Selenium Server on CircleCI', () => [
     await driver.quit();
   });
 
-  it('should be access http://example.com/', async () => {
+  it('should be access example.com', async () => {
     await driver.get('http://example.com/');
+  });
+
+  it('should be correct document title', async () => {
     const title = await driver.executeScript(() => document.title);
     assert(title === 'Example Domain');
   });
