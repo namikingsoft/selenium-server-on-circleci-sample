@@ -1,7 +1,10 @@
 import assert from 'power-assert';
 import { Builder, Capabilities, By, until, logging } from 'selenium-webdriver';
 
-describe('Selenium Server on CircleCI', () => {
+describe('Selenium Server on CircleCI', () => [
+  'phantomjs',
+  'chrome',
+].forEach(browserName => context(`browser: ${browserName}`, () => {
   let driver;
 
   before(async () => {
@@ -9,7 +12,7 @@ describe('Selenium Server on CircleCI', () => {
     prefs.setLevel(logging.Type.DRIVER, logging.Level.SEVERE); // quiet INFO
     driver = await new Builder()
     .withCapabilities({
-      browserName: 'phantomjs',
+      browserName,
     })
     .setLoggingPrefs(prefs)
     .buildAsync();
@@ -24,5 +27,5 @@ describe('Selenium Server on CircleCI', () => {
     const title = await driver.executeScript(() => document.title);
     assert(title === 'Example Domain');
   });
-});
+})));
 
