@@ -1,5 +1,7 @@
 machine:
   timezone: Asia/Tokyo
+  node:
+    version: 6.7.0
   environment:
     SELENIUM_DIRPATH: $HOME/.selenium
     SELENIUM_SERVER_JARFILE: selenium-server-standalone-3.0.0-beta3.jar
