@@ -1,6 +1,6 @@
 import assert from 'power-assert';
 import { Builder, Capabilities, By, until, logging } from 'selenium-webdriver';
-import { ScreenShot } from './utils';
+import { ScreenShot, msec } from './utils';
 
 describe('Selenium Server on CircleCI', () => [
   'phantomjs',
@@ -59,6 +59,7 @@ describe('Selenium Server on CircleCI', () => [
       await screenshot.capture(driver);
       const title = await driver.executeScript(() => document.f.submit());
       await driver.wait(until.titleContains('Greeting'), 5000);
+      await msec(1000);
       await screenshot.capture(driver);
     });
   });
