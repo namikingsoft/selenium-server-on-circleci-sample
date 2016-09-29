@@ -16,5 +16,7 @@ dependencies:
         background: true
 
 test:
+  pre:
+    - bin/copy-driver.sh
   post:
     - cp -r screenshot "${CIRCLE_ARTIFACTS}/"
