@@ -57,7 +57,7 @@ describe('Selenium Server on CircleCI', () => [
       await driver.wait(until.elementLocated(By.css('input[name="q"]')), 5000);
       await driver.findElement(By.css('input[name="q"]')).sendKeys('Greeting');
       await screenshot.capture(driver);
-      const title = await driver.executeScript(() => document.f.submit());
+      await driver.findElement(By.css('form[name="f"]')).submit();
       await driver.wait(until.titleContains('Greeting'), 5000);
       await msec(1000);
       await screenshot.capture(driver);
