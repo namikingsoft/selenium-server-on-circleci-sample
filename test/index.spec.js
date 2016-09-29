@@ -13,6 +13,7 @@ describe('Selenium Server on CircleCI', () => [
     const prefs = new logging.Preferences();
     prefs.setLevel(logging.Type.DRIVER, logging.Level.SEVERE); // quiet INFO
     driver = await new Builder()
+    .usingServer('http://127.0.0.1:4444/wd/hub')
     .withCapabilities({
       browserName,
     })
