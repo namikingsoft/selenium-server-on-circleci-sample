@@ -13,3 +13,8 @@ dependencies:
     - bin/upgrade-chrome.sh
     - bin/install-selenium.sh
     - bin/start-selenium.sh
+
+test:
+  override:
+    - npm run test
+    - cp -r screenshot "${CIRCLE_ARTIFACTS}/"
