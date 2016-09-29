@@ -16,6 +16,5 @@ dependencies:
         background: true
 
 test:
-  override:
-    - npm run test
+  post:
     - cp -r screenshot "${CIRCLE_ARTIFACTS}/"
