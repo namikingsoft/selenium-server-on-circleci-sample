@@ -1,11 +1,11 @@
 machine:
   timezone: Asia/Tokyo
   environment:
-    SELENIUM_DIRPATH="${HOME}/.selenium"
-    SELENIUM_SERVER_JARFILE="selenium-server-standalone-3.0.0-beta3.jar"
+    SELENIUM_DIRPATH: $HOME/.selenium
+    SELENIUM_SERVER_JARFILE: selenium-server-standalone-3.0.0-beta3.jar
 
 dependencies:
   cache_directories:
     - ~/.selenium
   pre:
-    - script/dependencies.sh
+    - bin/dependencies.sh
