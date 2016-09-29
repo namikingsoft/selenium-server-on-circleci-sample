@@ -10,4 +10,6 @@ dependencies:
   cache_directories:
     - ~/.selenium
   pre:
-    - bin/dependencies.sh
+    - bin/upgrade-chrome.sh
+    - bin/install-selenium.sh
+    - bin/start-selenium.sh
