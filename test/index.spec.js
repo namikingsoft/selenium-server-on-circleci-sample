@@ -40,7 +40,7 @@ describe('Selenium Server on CircleCI', () => [
     });
   });
 
-  describe('google.co.jp', () => {
+  if (browserName !== 'firefox') describe('google.co.jp', () => {
     const screenshot = new ScreenShot(screenshotDirPath, 'google.co.jp');
 
     it('should be access', async () => {
